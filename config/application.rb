@@ -55,7 +55,7 @@ module Ecofuego
 
     config.assets.initialize_on_precompile=false
 
-    config.assets.precompile += %w[admin/active_admin.css admin/active_admin.js]
+    config.assets.precompile += ['active_admin.css', 'active_admin/print.css', 'active_admin.js']
 
     # Enable the asset pipeline
     config.assets.enabled = true
