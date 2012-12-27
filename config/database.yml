@@ -1,0 +1,19 @@
+development: &development
+ adapter: postgresql
+ host: localhost
+ database: ecofuego_development
+ pool: 5
+ username: 
+ encoding: 
+
+test:
+ database: ecofuego_test
+ adapter: postgresql
+ host: localhost
+ username: 
+
+staging:
+ database: ecofuego_staging
+  
+production:
+ database: ecofuego_production
