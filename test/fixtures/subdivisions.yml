@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  shelve_id: MyString
+  code: MyString
+
+two:
+  shelve_id: MyString
+  code: MyString

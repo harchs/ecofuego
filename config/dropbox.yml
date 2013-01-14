@@ -1,0 +1,28 @@
+test:
+  app_key: rsxjctqiewxpj3k
+  app_secret: ad1nc4kfaz1kmn4
+  access_token: ypzaaloyl441dhv
+  access_token_secret: 0j1yf4bd7cu1u6o
+  user_id: 136023355
+  access_type: app_folder
+development:
+  app_key: rsxjctqiewxpj3k
+  app_secret: ad1nc4kfaz1kmn4
+  access_token: ypzaaloyl441dhv
+  access_token_secret: 0j1yf4bd7cu1u6o
+  user_id: 136023355
+  access_type: app_folder
+staging:
+  app_key: rsxjctqiewxpj3k
+  app_secret: ad1nc4kfaz1kmn4
+  access_token: ypzaaloyl441dhv
+  access_token_secret: 0j1yf4bd7cu1u6o
+  user_id: 136023355
+  access_type: app_folder
+production:
+  app_key: rsxjctqiewxpj3k
+  app_secret: ad1nc4kfaz1kmn4
+  access_token: ypzaaloyl441dhv
+  access_token_secret: 0j1yf4bd7cu1u6o
+  user_id: 136023355
+  access_type: app_folder

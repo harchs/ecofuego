@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121228021330) do
+ActiveRecord::Schema.define(:version => 20130113034046) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,18 +46,35 @@ ActiveRecord::Schema.define(:version => 20121228021330) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
-  create_table "residues", :force => true do |t|
-    t.string   "cod_shelve"
-    t.string   "dangerousness"
+  create_table "customers", :force => true do |t|
     t.string   "name"
-    t.string   "lot"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-    t.integer  "shelve_id"
+    t.string   "activity"
+    t.string   "addres"
+    t.string   "phone"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "material_safety_data_sheets", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+    t.string   "data_sheet_file_name"
+    t.string   "data_sheet_content_type"
+    t.integer  "data_sheet_file_size"
+    t.datetime "data_sheet_updated_at"
+    t.string   "name"
   end
 
   create_table "shelves", :force => true do |t|
     t.string   "cod_shelve"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "subdivisions", :force => true do |t|
+    t.integer  "shelve_id"
+    t.string   "code"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -79,5 +96,27 @@ ActiveRecord::Schema.define(:version => 20121228021330) do
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+
+  create_table "waste_classes", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "wastes", :force => true do |t|
+    t.string   "cod_shelve"
+    t.string   "dangerousness"
+    t.string   "name"
+    t.string   "lot"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.integer  "shelve_id"
+    t.integer  "waste_class_id"
+    t.integer  "customer_id"
+    t.integer  "material_safety_data_sheet_id"
+    t.date     "date_of_storage"
+    t.date     "date_final_disposition"
+  end
 
 end
