@@ -13,4 +13,15 @@ ActiveAdmin.register Shelve do
     end
     f.buttons
   end
+
+  index :paginate => 25 do
+    column "CODE", :sortable => :name do |shelve|
+      shelve.cod_shelve
+    end
+    column "SUBDIVISIONS" do |shelve|
+      shelve.subdivisions.count
+    end
+    default_actions
+  end
+
 end

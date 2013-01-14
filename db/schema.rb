@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130113034046) do
+ActiveRecord::Schema.define(:version => 20130114180759) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -53,6 +53,15 @@ ActiveRecord::Schema.define(:version => 20130113034046) do
     t.string   "phone"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "hazardousnesses", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.text     "classification"
+    t.text     "caution"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "material_safety_data_sheets", :force => true do |t|
@@ -106,7 +115,6 @@ ActiveRecord::Schema.define(:version => 20130113034046) do
 
   create_table "wastes", :force => true do |t|
     t.string   "cod_shelve"
-    t.string   "dangerousness"
     t.string   "name"
     t.string   "lot"
     t.datetime "created_at",                    :null => false
@@ -117,6 +125,7 @@ ActiveRecord::Schema.define(:version => 20130113034046) do
     t.integer  "material_safety_data_sheet_id"
     t.date     "date_of_storage"
     t.date     "date_final_disposition"
+    t.integer  "hazardousness_id"
   end
 
 end

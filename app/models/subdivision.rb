@@ -4,4 +4,5 @@ class Subdivision < ActiveRecord::Base
   
   belongs_to :shelve
   has_one :waste
+
 end

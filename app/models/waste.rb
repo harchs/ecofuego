@@ -7,6 +7,7 @@ class Waste < ActiveRecord::Base
   belongs_to :material_safety_data_sheet
   belongs_to :waste_class
   belongs_to :customer
+  belongs_to :hazardousness
 
   before_save :add_cod_subdivision
 

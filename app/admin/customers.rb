@@ -1,6 +1,6 @@
 ActiveAdmin.register Customer do
 
-	menu :priority => 6
+	menu :priority => 7
 
   filter :name
   filter :activity
