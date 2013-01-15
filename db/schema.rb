@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130114180759) do
+ActiveRecord::Schema.define(:version => 20130115020627) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -114,18 +114,19 @@ ActiveRecord::Schema.define(:version => 20130114180759) do
   end
 
   create_table "wastes", :force => true do |t|
-    t.string   "cod_shelve"
     t.string   "name"
     t.string   "lot"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
-    t.integer  "shelve_id"
     t.integer  "waste_class_id"
     t.integer  "customer_id"
     t.integer  "material_safety_data_sheet_id"
     t.date     "date_of_storage"
     t.date     "date_final_disposition"
     t.integer  "hazardousness_id"
+    t.integer  "subdivision_id"
+    t.integer  "weight"
+    t.text     "observations"
   end
 
 end

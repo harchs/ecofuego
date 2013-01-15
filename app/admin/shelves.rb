@@ -24,4 +24,16 @@ ActiveAdmin.register Shelve do
     default_actions
   end
 
+  show :title => :cod_shelve do 
+    panel "Shelve Details" do
+      attributes_table_for shelve do
+        row("cod_shelve") 
+        row("sub_divisions") do
+          shelve.subdivisions.count
+        end
+      end
+      active_admin_comments
+    end
+  end
+
 end

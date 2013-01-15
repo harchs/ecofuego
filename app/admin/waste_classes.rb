@@ -13,5 +13,15 @@ ActiveAdmin.register WasteClass do
     end
     default_actions
   end
+
+  show :title => :name do 
+    panel "Waste Class Details" do
+      attributes_table_for waste_class do
+        row("name") 
+        row("description") 
+      end
+      active_admin_comments
+    end
+  end
   
 end
