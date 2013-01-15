@@ -20,6 +20,6 @@ class Waste < ActiveRecord::Base
   validates :date_final_disposition, :presence => true
   validates :customer_id, :presence => true
   validates :subdivision_id, :presence => true
-  validates :weight, :presence => true
+  validates :weight, :presence => true, :numericality => { :greater_than_or_equal_to => 0.1 }
 
 end
