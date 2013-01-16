@@ -3,8 +3,8 @@ class Shelve < ActiveRecord::Base
 	attr_accessible :cod_shelve, :levels, :divisions, :sub_divisions
 	attr_accessor :levels, :divisions, :sub_divisions
 
-  has_many :wastes
-  has_many :subdivisions
+  has_many :wastes, dependent: :destroy
+  has_many :subdivisions, dependent: :destroy
 
   validates :cod_shelve, :presence => true
   validates :levels, :presence => true
@@ -13,7 +13,7 @@ class Shelve < ActiveRecord::Base
 
   after_save :create_subdivision
 
-
+	# acts_as_paranoid
 
 	def create_subdivision
 		cod_shelves = []

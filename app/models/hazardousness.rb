@@ -5,5 +5,7 @@ class Hazardousness < ActiveRecord::Base
   validates :name, :presence => true
   validates :classification, :presence => true
 
-  has_many :wastes
+  has_many :wastes, dependent: :destroy
+
+  acts_as_paranoid
 end

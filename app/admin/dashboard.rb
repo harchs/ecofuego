@@ -21,6 +21,7 @@ ActiveAdmin.register_page "Dashboard" do
           table_for Shelve.all do
             column("Code")   {|shelve| shelve.cod_shelve}                                    
             column("Total of subdivision")   {|shelve| shelve.subdivisions.count}
+            column("Free subdivisions")   {|shelve| Subdivision.free(shelve).count}
           end
         end
       end
@@ -30,8 +31,7 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         panel "CREMATIONS BY DAY" do
-          div do
-            text_node %{<iframe src="https://rpm.newrelic.com/public/charts/6VooNO2hKWB" width="100%" height="400" scrolling="no" frameborder="no"></iframe>}.html_safe
+          div :id => "chartdiv", :style =>"height:400px;width:100%;"  do
           end
         end
       end

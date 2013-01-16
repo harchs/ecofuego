@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 
 gem 'activeadmin'
+gem "acts_as_paranoid"
 gem "heroku"
 gem 'jquery-rails'
 gem "jquery-ui-rails"

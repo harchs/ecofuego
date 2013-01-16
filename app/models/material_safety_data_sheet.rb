@@ -12,4 +12,6 @@ class MaterialSafetyDataSheet < ActiveRecord::Base
   validates :description, :presence => true
   validates :data_sheet, :presence => true
 
+  acts_as_paranoid
+
 end

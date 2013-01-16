@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130115023005) do
+ActiveRecord::Schema.define(:version => 20130116023406) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20130115023005) do
     t.text     "caution"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.datetime "deleted_at"
   end
 
   create_table "material_safety_data_sheets", :force => true do |t|
@@ -73,19 +74,23 @@ ActiveRecord::Schema.define(:version => 20130115023005) do
     t.integer  "data_sheet_file_size"
     t.datetime "data_sheet_updated_at"
     t.string   "name"
+    t.datetime "deleted_at"
   end
 
   create_table "shelves", :force => true do |t|
     t.string   "cod_shelve"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.datetime "deleted_at"
   end
 
   create_table "subdivisions", :force => true do |t|
     t.integer  "shelve_id"
     t.string   "code"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.datetime "deleted_at"
+    t.boolean  "in_use",     :default => false
   end
 
   create_table "users", :force => true do |t|
@@ -111,6 +116,7 @@ ActiveRecord::Schema.define(:version => 20130115023005) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.datetime "deleted_at"
   end
 
   create_table "wastes", :force => true do |t|
@@ -127,6 +133,7 @@ ActiveRecord::Schema.define(:version => 20130115023005) do
     t.integer  "subdivision_id"
     t.float    "weight"
     t.text     "observations"
+    t.datetime "deleted_at"
   end
 
 end

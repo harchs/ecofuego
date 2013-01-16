@@ -22,6 +22,11 @@ class Waste < ActiveRecord::Base
   validates :subdivision_id, :presence => true
   validates :weight, :presence => true, :numericality => { :greater_than_or_equal_to => 0.1 }
 
+  after_save :subdivision_in_use
+  before_destroy :liberate_subdivision
+
+  acts_as_paranoid
+
   class << self
     def near_to_date_final_of_disposition
       where('date_final_disposition BETWEEN ? AND ?', Date.today, Date.today + 15)
@@ -31,5 +36,16 @@ class Waste < ActiveRecord::Base
   def remaining_days
     (self.date_final_disposition.to_date - Date.today).to_i
   end
+
+
+  private
+
+  def subdivision_in_use
+    self.subdivision.update_attributes(in_use: true)
+  end
+
+  def liberate_subdivision
+    self.subdivision.update_attributes(in_use: false)
+  end 
 
 end
