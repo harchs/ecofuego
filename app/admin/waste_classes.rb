@@ -23,5 +23,13 @@ ActiveAdmin.register WasteClass do
       active_admin_comments
     end
   end
+
+  form do |f|
+    f.inputs "Details" do
+      f.input :name
+      f.input :description
+    end
+    f.buttons
+  end
   
 end

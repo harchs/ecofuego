@@ -31,8 +31,7 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         panel "CREMATIONS BY DAY" do
-          div :id => "chartdiv", :style =>"height:400px;width:100%;"  do
-          end
+          render 'graph'
         end
       end
     end

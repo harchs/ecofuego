@@ -33,5 +33,15 @@ ActiveAdmin.register Hazardousness do
     end
   end
 
+  form do |f|
+    f.inputs "Details" do
+      f.input :code
+      f.input :name
+      f.input :classification
+      f.input :caution
+    end
+    f.buttons
+  end
+
 
 end

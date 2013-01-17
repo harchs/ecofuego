@@ -31,6 +31,10 @@ class Waste < ActiveRecord::Base
     def near_to_date_final_of_disposition
       where('date_final_disposition BETWEEN ? AND ?', Date.today, Date.today + 15)
     end
+
+    def incinerated(period, date)
+      only_deleted.where("date_trunc('#{period}', deleted_at) = date_trunc('#{period}', TIMESTAMP '#{date}')").sum(:weight)
+    end
   end
 
   def remaining_days
