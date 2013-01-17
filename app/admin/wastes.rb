@@ -3,7 +3,7 @@ ActiveAdmin.register Waste do
   menu :priority => 2
 
   filter :name
-  filter :hazardousness, :as => :select, :collection => Hazardousness.all.map {|h| [h.name, h.id]}
+  #filter :hazardousness, :as => :select, :collection => Hazardousness.all.map {|h| [h.name, h.id]}
   filter :date_of_storage
   filter :date_final_disposition
 
