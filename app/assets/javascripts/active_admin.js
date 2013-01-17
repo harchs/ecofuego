@@ -2,6 +2,7 @@
 //= require jquery.ui.all
 //= require jquery-ui-datepicker-1.9.2.custom
 //= require jquery.colorbox
+//= require highcharts
 
 $(document).ready(function() {
   $('input.hasDatetimePicker').datepicker({
