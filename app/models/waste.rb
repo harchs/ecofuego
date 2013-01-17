@@ -32,8 +32,8 @@ class Waste < ActiveRecord::Base
       where('date_final_disposition BETWEEN ? AND ?', Date.today, Date.today + 15)
     end
 
-    def incinerated(period, date)
-      only_deleted.where("date_trunc('#{period}', deleted_at) = date_trunc('#{period}', TIMESTAMP '#{date}')").sum(:weight)
+    def incinerated(period)
+      only_deleted.select("date_trunc('#{period}', deleted_at) as period, sum(weight) as weight").group('period')
     end
   end
 

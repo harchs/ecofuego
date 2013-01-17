@@ -3,14 +3,23 @@
     new Highcharts.Chart({
       chart: { renderTo: 'chartdiv' },
       title: { text: '' },
-	    xAxis: { type: 'datetime',  maxZoom: 24 * 3600 * 30000 },
+	    xAxis: { 
+        type: 'datetime',  
+        maxZoom: 720 * 3600 * 1000
+      },
 	    yAxis: {
 	      title: { text: 'Wastes(kg) incinerated'}
 	    },
+      tooltip: {
+        formatter: function () {
+          return Highcharts.dateFormat("%B, %Y", this.x) + ': ' + Highcharts.numberFormat(this.y, 2) + ' Kg';
+        }
+      },
 	    series: [{
-	      pointInterval: <%= 1.day * 30000 %>,
-	      pointStart: Date.UTC(2013, 0, 1),
-	      data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+        name: "Wastes incinerated",
+	      pointInterval: 720 * 3600 * 1000,
+	      pointStart: Date.UTC(2013, 0),
+	      data: <%= Waste.incinerated('month').map(&:weight)%>
 	    }]
 	  });
   });

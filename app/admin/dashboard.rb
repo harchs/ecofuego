@@ -21,7 +21,7 @@ ActiveAdmin.register_page "Dashboard" do
           table_for Shelve.all do
             column("Code")   {|shelve| shelve.cod_shelve}                                    
             column("Total of subdivision")   {|shelve| shelve.subdivisions.count}
-            column("Free subdivisions")   {|shelve| Subdivision.free(shelve).count}
+            column("Free subdivisions")   {|shelve| Subdivision.free().of_shelve(shelve).count}
           end
         end
       end

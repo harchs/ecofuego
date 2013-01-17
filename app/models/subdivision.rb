@@ -8,8 +8,11 @@ class Subdivision < ActiveRecord::Base
   acts_as_paranoid
 
   class << self
-  	def free(shelve)
-      where('in_use = false AND shelve_id = ?', shelve.id)
+  	def free()
+      where('in_use = false') 
+    end
+    def of_shelve(shelve)
+    	where('shelve_id = ?', shelve.id)
     end
   end
 
