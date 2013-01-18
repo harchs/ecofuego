@@ -1,5 +1,5 @@
 ActiveAdmin.register Hazardousness do
-  menu :priority => 6
+  menu :priority => 7
 
   filter :code
   filter :name

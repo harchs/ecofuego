@@ -1,6 +1,6 @@
 ActiveAdmin.register Shelve do
 
-  menu :priority => 4
+  menu :priority => 5
 
   filter :cod_shelve
 

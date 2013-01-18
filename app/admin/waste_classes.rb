@@ -1,6 +1,6 @@
 ActiveAdmin.register WasteClass do
 
-	menu :priority => 3
+	menu :priority => 4
   
 	filter :name
 

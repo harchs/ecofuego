@@ -1,6 +1,6 @@
 ActiveAdmin.register MaterialSafetyDataSheet do
 
-	menu :priority => 5
+	menu :priority => 6
 
 	filter :name
 

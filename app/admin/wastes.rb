@@ -1,6 +1,6 @@
 ActiveAdmin.register Waste do
 
-  menu :priority => 2
+  menu :priority => 3
 
   filter :name
   #filter :hazardousness, :as => :select, :collection => Hazardousness.all.map {|h| [h.name, h.id]}

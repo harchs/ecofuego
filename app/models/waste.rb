@@ -35,6 +35,10 @@ class Waste < ActiveRecord::Base
     def incinerated(period)
       only_deleted.select("date_trunc('#{period}', deleted_at) as period, sum(weight) as weight").group('period')
     end
+
+    def group_by_name(name)
+      where("name = '#{name}'")
+    end
   end
 
   def remaining_days
